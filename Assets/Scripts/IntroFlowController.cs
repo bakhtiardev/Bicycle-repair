@@ -23,6 +23,7 @@ public class IntroFlowController : MonoBehaviour
 
     void OnStartPressed()
     {
+        currentPage = 1;
         if (welcomePanel != null) welcomePanel.SetActive(false);
         if (descriptionPanel != null) descriptionPanel.SetActive(true);
     }
@@ -32,12 +33,13 @@ public class IntroFlowController : MonoBehaviour
         Debug.Log("Next button pressed! Action applies later.");
         currentPage++;
     }
+
     void OnBackPressed()
     {
-        Debug.Log("Back button pressed! Action applies later.");
         currentPage--;
-        if (currentPage == 0)
+        if (currentPage <= 0)
         {
+            currentPage = 0;
             if (welcomePanel != null) welcomePanel.SetActive(true);
             if (descriptionPanel != null) descriptionPanel.SetActive(false);
         }
