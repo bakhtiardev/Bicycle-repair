@@ -70,6 +70,8 @@ public class WheelUnlocker : MonoBehaviour
     {
         if (wheelRigidbody != null)
         {
+            wheelRigidbody.linearVelocity = Vector3.zero;
+            wheelRigidbody.angularVelocity = Vector3.zero;
             wheelRigidbody.isKinematic = true;
             wheelRigidbody.useGravity = false;
         }
@@ -87,8 +89,10 @@ public class WheelUnlocker : MonoBehaviour
 
         if (wheelRigidbody != null)
         {
-            wheelRigidbody.isKinematic = false;
-            wheelRigidbody.useGravity = true;
+            wheelRigidbody.linearVelocity = Vector3.zero;
+            wheelRigidbody.angularVelocity = Vector3.zero;
+            wheelRigidbody.isKinematic = true;
+            wheelRigidbody.useGravity = false;
         }
 
         if (grabbableScript != null)
