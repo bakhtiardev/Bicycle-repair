@@ -104,7 +104,7 @@ Material:
     - _NormalBlend: 1
     - _OcclusionStrength: 1
     - _Opacity: 1
-    - _OrthoRoughness: 0.1
+    - _OrthoRoughness: 0.18
     - _OutlineWidth: 0.1
     - _Parallax: 0.02
     - _Roughness: 0.35

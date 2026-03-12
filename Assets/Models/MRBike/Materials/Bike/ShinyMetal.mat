@@ -95,7 +95,7 @@ Material:
     - _Kd: 0.02
     - _Kf: 0.65
     - _Kr: 0.44
-    - _Ks: 0.66
+    - _Ks: 0.6
     - _Metallic: 0
     - _Metalness: 0.8
     - _MikktNormals: 0
@@ -103,7 +103,7 @@ Material:
     - _NormalBlend: 1
     - _OcclusionStrength: 1
     - _Opacity: 1
-    - _OrthoRoughness: 0.1
+    - _OrthoRoughness: 0.18
     - _OutlineWidth: 0.1
     - _Parallax: 0.02
     - _PreMult: 0

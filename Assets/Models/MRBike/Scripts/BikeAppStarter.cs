@@ -12,7 +12,7 @@ namespace MRBike
 
         [SerializeField] private float m_delay = 10;
 
-private void Start() { m_voPlayer.PlayOnce(0); Invoke("PlayDelay", m_delay); }
+private void Start() { if (m_voPlayer != null) m_voPlayer.PlayOnce(0); Invoke("PlayDelay", m_delay); }
 
 private void PlayDelay() { }
     }

@@ -86,20 +86,33 @@ float blinnPhong(float gloss, float3 N, float3 V, float3 L)
 {
     float3 H = normalize(L + V);
     float NdotH = saturate(dot(H, N));
+    
+    // Specular Anti-Aliasing to prevent VR fireflies
+    float variance = max(dot(ddx(N), ddx(N)), dot(ddy(N), ddy(N)));
+    gloss = clamp(gloss - variance * 2.0, 0.01, 0.85); // Cap max gloss to prevent sub-pixel highlights
+    
     float specK = exp2(gloss * 11) + 2;
-    return pow(NdotH, specK) * gloss;
+    float specVal = pow(abs(NdotH), specK) * gloss;
+    return min(specVal, 3.0) * lerp(1.0, 0.5, saturate(variance * 10.0));
 }
 
 // Ward model of anisotropic reflection
 float Ward(float3 N,float3 V,float3 L,float3 T, float3 B, float2 Kw)
 {
+    // Specular Anti-Aliasing for anisotropic
+    float variance = max(dot(ddx(N), ddx(N)), dot(ddy(N), ddy(N)));
+    Kw.x = max(Kw.x + variance * 2.0, 0.08); // Enforce minimum roughness to avoid fireflies
+    Kw.y = max(Kw.y + variance * 2.0, 0.08);
+
     float3 H = normalize(L + V);
-    float dotLN = dot(L, N);
-    float dotHN = dot(H, N);
-    float dotVN = dot(V, N);
+    float dotLN = max(0.0, dot(L, N));
+    float dotHN = max(0.0, dot(H, N));
+    float dotVN = max(0.001, dot(V, N));
     float dotHTAlphaX = dot(H, T) / Kw.x;
     float dotHBAlphaY = dot(H, B) / Kw.y;
-    return sqrt(max(0.0, dotLN / dotVN)) * exp(-2.0 * (dotHTAlphaX * dotHTAlphaX + dotHBAlphaY * dotHBAlphaY) / (1.0 + dotHN));
+    
+    float specVal = sqrt(max(0.0, dotLN / dotVN)) * exp(-2.0 * (dotHTAlphaX * dotHTAlphaX + dotHBAlphaY * dotHBAlphaY) / (1.0 + dotHN));
+    return min(specVal, 3.0) * lerp(1.0, 0.5, saturate(variance * 10.0));
 }
 
 // oren-nayar model of diffuse lighting
@@ -221,11 +234,21 @@ float4 frag(v2f i) : SV_Target
     #endif
 
     float3 R = -reflect(V, N);
-    half4 sibl = tex2Dlod( _IBLTex, float4(Cube2Latlong(R),0,_SpecularMIP));
+    
+    // Add specular AA blur for IBL based on screen-space normal variance
+    float varianceIBL = max(dot(ddx(N), ddx(N)), dot(ddy(N), ddy(N)));
+    float targetMip = _SpecularMIP + saturate(varianceIBL * 5.0) * 3.0; // Blur IBL on curved/bumpy faces
+    
+    half4 sibl = tex2Dlod( _IBLTex, float4(Cube2Latlong(R),0,targetMip));
     half3 specIBL = DecodeHDREnvironment(sibl, _IBLTex_HDR);
     specIBL *= COLORSPACE_DOUBLE * _Exposure;
+    specIBL = min(specIBL, 5.0); // Clamp maximum IBL intensity
+    
     float fresnel = schlick(_Eta, -V, N);
     float3 specC = lerp(1, _SpecularTint.rgb, _Metalness) * (_Ks * specLight + _Kr * specIBL+ _Kf * fresnel); 
+    
+    // Final clamp to completely eradicate fireflies
+    specC = min(specC, 3.0);
 
     compC.rgb += specC;
 
