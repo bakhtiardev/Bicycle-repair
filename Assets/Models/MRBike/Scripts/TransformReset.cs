@@ -44,7 +44,7 @@ namespace MRBike
         {
             m_isGrabbed = false;
 
-            if (m_grabbable.SelectingPointsCount == 0)
+            if (m_grabbable.SelectingPointsCount == 0 && gameObject.activeInHierarchy && enabled)
             {
                 _ = StartCoroutine(ReturnHome());
             }
@@ -56,7 +56,7 @@ namespace MRBike
 
             if (isOwner)
             {
-                if (m_grabbable.SelectingPointsCount == 0)
+                if (m_grabbable.SelectingPointsCount == 0 && gameObject.activeInHierarchy && enabled)
                 {
                     _ = StartCoroutine(ReturnHome());
                 }

@@ -8064,10 +8064,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_grabbedObject: {fileID: 0}
-  m_thresholdDistance: 0.02
+  m_thresholdDistance: 0.12
   m_thresholdAngle: 180
   m_offset: 0
-  m_removeGrabbableOnComplete: 1
+  m_removeGrabbableOnComplete: 0
   m_debugText: {fileID: 8909034022030131957}
   OnComplete:
     m_PersistentCalls:
@@ -17412,7 +17412,7 @@ MonoBehaviour:
   m_thresholdDistance: 0.1
   m_thresholdAngle: 180
   m_offset: 0
-  m_removeGrabbableOnComplete: 1
+  m_removeGrabbableOnComplete: 0
   m_debugText: {fileID: 8171984180861641484}
   OnComplete:
     m_PersistentCalls:
