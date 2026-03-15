@@ -28,9 +28,14 @@ public class WrenchProximityGrab : MonoBehaviour
     private Transform _heldBy = null;
     private OVRInput.Controller _holdingController = OVRInput.Controller.None;
     private Rigidbody _rb;
+    private Vector3 _originalPosition;
+    private Quaternion _originalRotation;
 
     private void Start()
     {
+        _originalPosition = transform.position;
+        _originalRotation = transform.rotation;
+
         _rb = GetComponent<Rigidbody>();
         // Start kinematic so wrench rests on the table without physics.
         if (_rb != null)
@@ -98,11 +103,15 @@ public class WrenchProximityGrab : MonoBehaviour
     {
         _heldBy = null;
         _holdingController = OVRInput.Controller.None;
-        // Enable gravity so the wrench falls to the floor.
+        // Return wrench to its original position on the table.
+        transform.position = _originalPosition;
+        transform.rotation = _originalRotation;
         if (_rb != null)
         {
-            _rb.isKinematic = false;
-            _rb.useGravity  = true;
+            _rb.isKinematic = true;
+            _rb.useGravity  = false;
+            _rb.linearVelocity = Vector3.zero;
+            _rb.angularVelocity = Vector3.zero;
         }
     }
 }
