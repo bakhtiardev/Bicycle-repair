@@ -31,7 +31,7 @@ namespace AUIT.AdaptationObjectives
                     checkTargetsLocal.Add(new Vector3(x, y, 0));
                 }
             }
-            
+
 
             Matrix4x4 trs = Matrix4x4.TRS(layout.Position, layout.Rotation, layout.Scale);
             Vector3[] checkTargets = new Vector3[checkTargetsLocal.Count];
@@ -68,7 +68,7 @@ namespace AUIT.AdaptationObjectives
                     return 1;
                 }
             }
-            return 0; 
+            return 0;
         }
 
         private Vector3 GetPlanarDirection(Layout optimizationTarget)
@@ -108,16 +108,19 @@ namespace AUIT.AdaptationObjectives
                     }
                 }
                 moveDirection.Normalize();
-            } else if (moveStrategy < 0.66) {
+            }
+            else if (moveStrategy < 0.66)
+            {
                 moveDirection = GetPlanarDirection(optimizationTarget);
-            } else
+            }
+            else
             {
                 moveDirection = Random.onUnitSphere;
             }
 
             result.Position += Random.Range(0f, 0.1f) * moveDirection;
 
-            return result; 
+            return result;
         }
 
         public override Layout DirectRule(Layout optimizationTarget)
@@ -134,7 +137,6 @@ namespace AUIT.AdaptationObjectives
                 userContextSource = GetUserPoseContextSource();
             }
 
-            physicalLayerMask = LayerMask.GetMask("Physical Environment");
         }
 
         public override float[] GetParameters()

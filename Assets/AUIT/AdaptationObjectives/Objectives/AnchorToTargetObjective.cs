@@ -15,7 +15,7 @@ namespace AUIT.AdaptationObjectives
         [SerializeField]
         private float distanceThreshold = 2.0f;
 
-        public override ObjectiveType ObjectiveType => throw new System.NotImplementedException();
+        public override ObjectiveType ObjectiveType => ObjectiveType.FieldOfView;
 
 
 
