@@ -1039,6 +1039,7 @@ MonoBehaviour:
   carpetTarget: {fileID: 1955543004}
   carpetPlaceRadius: 0.8
   flatEulers: {x: 0, y: 0, z: 0}
+  carpetSideOffset: 0.15
   counterCanvas: {fileID: 1581629077}
   isLeftPedal: 0
   levelController: {fileID: 1365625103}
@@ -1089,6 +1090,7 @@ MonoBehaviour:
   wrench: {fileID: 2055648692}
   pedalGrab: {fileID: 2094129977}
   counterText: {fileID: 1559587326}
+  counterCanvasObject: {fileID: 1232722294}
   zoneRadius: 0.7
   wrenchTipOffset: 0.06
   turnsRequired: 8
@@ -1823,6 +1825,7 @@ MonoBehaviour:
   wrench: {fileID: 2055648692}
   pedalGrab: {fileID: 268439993}
   counterText: {fileID: 13846408}
+  counterCanvasObject: {fileID: 1581629077}
   zoneRadius: 0.76
   wrenchTipOffset: 0.06
   turnsRequired: 8
@@ -2522,7 +2525,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 649619481}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 4.180412}
+  m_LocalPosition: {x: 0, y: 0, z: 2.872}
   m_LocalScale: {x: 0.002, y: 0.002, z: 0.002}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2532,7 +2535,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 2.87, y: 1.677063}
+  m_AnchoredPosition: {x: 1.625, y: 1.105}
   m_SizeDelta: {x: 800, y: 250}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &668354068
@@ -5434,7 +5437,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1581629078
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6999,6 +7002,7 @@ MonoBehaviour:
   carpetTarget: {fileID: 1955543004}
   carpetPlaceRadius: 0.8
   flatEulers: {x: 0, y: 0, z: 0}
+  carpetSideOffset: 0.15
   counterCanvas: {fileID: 1232722294}
   isLeftPedal: 1
   levelController: {fileID: 1365625103}
