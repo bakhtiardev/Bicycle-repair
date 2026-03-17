@@ -5035,7 +5035,7 @@ MonoBehaviour:
   userContextSource: {fileID: 198575143}
   physicalLayerMask:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 0
 --- !u!114 &2004517098
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5120,7 +5120,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AUIT.AdaptationObjectives.TargetDistanceObjective
   weight: 0.5
-  targetContextSource: {fileID: 0}
+  targetContextSource: {fileID: 198575143}
   targetDistance: 1.8
   angleInterval: 20
   angleIntervalCostRange: 30
@@ -5161,7 +5161,7 @@ MonoBehaviour:
   userContextSource: {fileID: 1398597433}
   width: 7
   height: 7
-  grid: 00000000000000000000000000000000000000000000000000000000000000000000000001000000010000010100010100
+  grid: 00000000000000000000000000000000000000000000000000000000000000000000000001000000000000010100010100
   debugDrawGrid: 0
 --- !u!114 &2004517104
 MonoBehaviour:
