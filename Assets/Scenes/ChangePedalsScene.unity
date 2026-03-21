@@ -529,7 +529,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Next
+  m_text: Next (Y)
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -676,8 +676,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -0.16000003, y: 0.06}
-  m_SizeDelta: {x: 0.3, y: 0.12}
+  m_AnchoredPosition: {x: -0.254, y: 0.06}
+  m_SizeDelta: {x: 0.5, y: 0.12}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &111782111
 MonoBehaviour:
@@ -1133,14 +1133,14 @@ RectTransform:
   m_GameObject: {fileID: 295854111}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.2003, y: 1.2003, z: 1.2003}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 336342672}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.5485, y: 0.0031}
+  m_AnchoredPosition: {x: 0.056, y: 0.224}
   m_SizeDelta: {x: 1.1348, y: 1.2332}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!328 &295854113
@@ -1240,7 +1240,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 308418831}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0.004}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1248,8 +1248,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -0.6193, y: 0.0074}
-  m_SizeDelta: {x: 1.1348, y: 1.2332}
+  m_AnchoredPosition: {x: -1.162, y: -0.424}
+  m_SizeDelta: {x: 2, y: 1.2332}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &308418833
 MonoBehaviour:
@@ -1271,7 +1271,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Instructions
+  m_text: Instructions text lorem ipsum
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1499,18 +1499,18 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 336342658}
-  m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0, z: -0.43}
+  m_LocalRotation: {x: -0, y: -0.99985135, z: -0, w: -0.017242275}
+  m_LocalPosition: {x: 0, y: 0, z: -0.992}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 229962460}
   - {fileID: 295854112}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -181.976, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0.975, y: 1.4197}
+  m_AnchoredPosition: {x: 0.314, y: 1.4197}
   m_SizeDelta: {x: 2.3747, y: 1.6994}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &336342673
@@ -1545,15 +1545,29 @@ MonoBehaviour:
   instructionText: {fileID: 308418833}
   nextButton: {fileID: 111782111}
   prevButton: {fileID: 1896139353}
+  videoPlayer: {fileID: 295854113}
+  videoImage: {fileID: 295854114}
   instructions:
-  - Welcome! Follow the instructions to complete the pedal replacement task.
+  - Welcome! Follow the instructions to complete the back wheel removal task. Use
+    Left Controller X button to go Prev and Y button to go Next
   - 'Step 1: Grab the wrench from the tool rack.'
-  - 'Step 2: Use the wrench on the pedal bolt to loosen it.'
+  - 'Step 2: Use the wrench on the left pedal bolt (left in the direction when you
+    sit on the bicycle) to loosen it.'
   - 'Step 3: Once loose, grab the pedal and remove it.'
-  - 'Step 4: Take the new pedal and align it with the crank arm.'
-  - 'Step 5: Hand-tighten the pedal, then use the wrench to tighten securely.'
+  - 'Step 4: Use the wrench on the right pedal bolt (right in the direction when
+    you sit on the bicycle) to loosen it.'
+  - 'Step 3: Once loose, grab the pedal and remove it.'
   - Excellent work! You've successfully changed the pedal.
+  instructionVideos:
+  - {fileID: 32900000, guid: 054a354d0b2ee68429812916a9948043, type: 3}
+  - {fileID: 32900000, guid: 944ac6ace219e1544931236ecfcd1c19, type: 3}
+  - {fileID: 32900000, guid: 36df9b25ebe6b934a967647f65c1abbb, type: 3}
+  - {fileID: 32900000, guid: 7545d5ddb27fe4143b3267d4da2f2114, type: 3}
+  - {fileID: 32900000, guid: 36df9b25ebe6b934a967647f65c1abbb, type: 3}
+  - {fileID: 32900000, guid: 7545d5ddb27fe4143b3267d4da2f2114, type: 3}
+  - {fileID: 0}
   loopInstructions: 0
+  loopCurrentVideo: 1
   enableControllerButtons: 1
   enableRayTriggerInteraction: 1
   maxRayDistance: 10
@@ -3656,153 +3670,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a0200d999c05c54fa27292e7f8616ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1001 &1179165986
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: -6689036041284674117, guid: e954662b0d25e514fa7b5c6add2ca884, type: 3}
-      propertyPath: m_Name
-      value: AllenWrench 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2774220344278030320, guid: e954662b0d25e514fa7b5c6add2ca884, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.005
-      objectReference: {fileID: 0}
-    - target: {fileID: 2774220344278030320, guid: e954662b0d25e514fa7b5c6add2ca884, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.005
-      objectReference: {fileID: 0}
-    - target: {fileID: 2774220344278030320, guid: e954662b0d25e514fa7b5c6add2ca884, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.005
-      objectReference: {fileID: 0}
-    - target: {fileID: 2774220344278030320, guid: e954662b0d25e514fa7b5c6add2ca884, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 1.066
-      objectReference: {fileID: 0}
-    - target: {fileID: 2774220344278030320, guid: e954662b0d25e514fa7b5c6add2ca884, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.846
-      objectReference: {fileID: 0}
-    - target: {fileID: 2774220344278030320, guid: e954662b0d25e514fa7b5c6add2ca884, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -1.6
-      objectReference: {fileID: 0}
-    - target: {fileID: 2774220344278030320, guid: e954662b0d25e514fa7b5c6add2ca884, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: -0.0096369125
-      objectReference: {fileID: 0}
-    - target: {fileID: 2774220344278030320, guid: e954662b0d25e514fa7b5c6add2ca884, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0.99995357
-      objectReference: {fileID: 0}
-    - target: {fileID: 2774220344278030320, guid: e954662b0d25e514fa7b5c6add2ca884, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2774220344278030320, guid: e954662b0d25e514fa7b5c6add2ca884, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2774220344278030320, guid: e954662b0d25e514fa7b5c6add2ca884, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: -181.104
-      objectReference: {fileID: 0}
-    - target: {fileID: 2774220344278030320, guid: e954662b0d25e514fa7b5c6add2ca884, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2774220344278030320, guid: e954662b0d25e514fa7b5c6add2ca884, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: -6689036041284674117, guid: e954662b0d25e514fa7b5c6add2ca884, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1179165990}
-    - targetCorrespondingSourceObject: {fileID: -6689036041284674117, guid: e954662b0d25e514fa7b5c6add2ca884, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1179165989}
-    - targetCorrespondingSourceObject: {fileID: -6689036041284674117, guid: e954662b0d25e514fa7b5c6add2ca884, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1179165988}
-  m_SourcePrefab: {fileID: -5645937942226959685, guid: e954662b0d25e514fa7b5c6add2ca884, type: 3}
---- !u!1 &1179165987 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: -6689036041284674117, guid: e954662b0d25e514fa7b5c6add2ca884, type: 3}
-  m_PrefabInstance: {fileID: 1179165986}
-  m_PrefabAsset: {fileID: 0}
---- !u!136 &1179165988
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1179165987}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Height: 1
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &1179165989
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1179165987}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 057fad7f0f1a202468aafe3feaf76d71, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::WrenchProximityGrab
-  pickupRange: 0.2
-  wrenchTip: {fileID: 0}
---- !u!54 &1179165990
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1179165987}
-  serializedVersion: 5
-  m_Mass: 1
-  m_LinearDamping: 0
-  m_AngularDamping: 0.05
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
-  m_InertiaTensor: {x: 1, y: 1, z: 1}
-  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ImplicitCom: 1
-  m_ImplicitTensor: 1
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!114 &1230806881 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 270863741373850870, guid: bbb2db3731ace5545b6db29d18a9d36d, type: 3}
@@ -5485,7 +5352,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2f1fe88d1f1c2e468cea3a2642e4848, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BoltLooseningInteraction
-  wrench: {fileID: 1179165989}
+  wrench: {fileID: 0}
   wheelGrab: {fileID: 1980748612}
   counterText: {fileID: 1559587326}
   zoneRadius: 1
@@ -5683,8 +5550,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0.156, y: 0.06}
-  m_SizeDelta: {x: 0.3, y: 0.12}
+  m_AnchoredPosition: {x: 0.255, y: 0.06}
+  m_SizeDelta: {x: 0.5, y: 0.12}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1896139353
 MonoBehaviour:
@@ -5825,7 +5692,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Prev
+  m_text: Prev (X)
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -6732,6 +6599,30 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2657638037741526677, guid: e6084503f826bbb428b1e677dc1a75d4, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 2.6605318
+      objectReference: {fileID: 0}
+    - target: {fileID: 2657638037741526677, guid: e6084503f826bbb428b1e677dc1a75d4, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.8619935
+      objectReference: {fileID: 0}
+    - target: {fileID: 2657638037741526677, guid: e6084503f826bbb428b1e677dc1a75d4, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.999998
+      objectReference: {fileID: 0}
+    - target: {fileID: 2657638037741526677, guid: e6084503f826bbb428b1e677dc1a75d4, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2657638037741526677, guid: e6084503f826bbb428b1e677dc1a75d4, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.002013255
+      objectReference: {fileID: 0}
+    - target: {fileID: 2657638037741526677, guid: e6084503f826bbb428b1e677dc1a75d4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -0.231
+      objectReference: {fileID: 0}
     - target: {fileID: 6743167693871608575, guid: e6084503f826bbb428b1e677dc1a75d4, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -6833,7 +6724,6 @@ SceneRoots:
   - {fileID: 649619485}
   - {fileID: 1073056581}
   - {fileID: 668354070}
-  - {fileID: 1179165986}
   - {fileID: 2055648690}
   - {fileID: 1365625104}
   - {fileID: 336342672}
