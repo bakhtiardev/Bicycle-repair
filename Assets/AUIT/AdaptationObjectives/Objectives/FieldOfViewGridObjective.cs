@@ -55,7 +55,130 @@ namespace AUIT.AdaptationObjectives.Objectives
             if (x < 0 || x >= width || y < 0 || y >= height) return false;
             return grid[y * width + x];
         }
-    
+
+        #region Runtime Grid Manipulation API
+
+        /// <summary>
+        /// Set grid dimensions and resize the grid array.
+        /// Values are clamped to valid range (3-10).
+        /// </summary>
+        /// <param name="newWidth">New grid width (3-10)</param>
+        /// <param name="newHeight">New grid height (3-10)</param>
+        public void SetGridDimensions(int newWidth, int newHeight)
+        {
+            width = Mathf.Clamp(newWidth, 3, 10);
+            height = Mathf.Clamp(newHeight, 3, 10);
+            ResizeGrid();
+        }
+
+        /// <summary>
+        /// Set a specific cell's active state.
+        /// </summary>
+        /// <param name="x">Column index (0 to width-1)</param>
+        /// <param name="y">Row index (0 to height-1)</param>
+        /// <param name="active">True to activate cell, false to deactivate</param>
+        public void SetCell(int x, int y, bool active)
+        {
+            if (x < 0 || x >= width || y < 0 || y >= height) return;
+            grid[y * width + x] = active;
+        }
+
+        /// <summary>
+        /// Toggle a cell's active state.
+        /// </summary>
+        /// <param name="x">Column index (0 to width-1)</param>
+        /// <param name="y">Row index (0 to height-1)</param>
+        public void ToggleCell(int x, int y)
+        {
+            if (x < 0 || x >= width || y < 0 || y >= height) return;
+            grid[y * width + x] = !grid[y * width + x];
+        }
+
+        /// <summary>
+        /// Get a cell's active state.
+        /// </summary>
+        /// <param name="x">Column index (0 to width-1)</param>
+        /// <param name="y">Row index (0 to height-1)</param>
+        /// <returns>True if cell is active, false otherwise</returns>
+        public bool GetCell(int x, int y)
+        {
+            if (x < 0 || x >= width || y < 0 || y >= height) return false;
+            return grid[y * width + x];
+        }
+
+        /// <summary>
+        /// Clear all cells (set all to inactive).
+        /// </summary>
+        public void ClearGrid()
+        {
+            for (int i = 0; i < grid.Count; i++)
+                grid[i] = false;
+        }
+
+        /// <summary>
+        /// Fill all cells (set all to active).
+        /// </summary>
+        public void FillGrid()
+        {
+            for (int i = 0; i < grid.Count; i++)
+                grid[i] = true;
+        }
+
+        /// <summary>
+        /// Set all cells in a specific row.
+        /// </summary>
+        /// <param name="row">Row index (0 to height-1)</param>
+        /// <param name="active">True to activate, false to deactivate</param>
+        public void SetRow(int row, bool active)
+        {
+            if (row < 0 || row >= height) return;
+            for (int x = 0; x < width; x++)
+                grid[row * width + x] = active;
+        }
+
+        /// <summary>
+        /// Set all cells in a specific column.
+        /// </summary>
+        /// <param name="column">Column index (0 to width-1)</param>
+        /// <param name="active">True to activate, false to deactivate</param>
+        public void SetColumn(int column, bool active)
+        {
+            if (column < 0 || column >= width) return;
+            for (int y = 0; y < height; y++)
+                grid[y * width + column] = active;
+        }
+
+        /// <summary>
+        /// Get the total number of active cells.
+        /// </summary>
+        /// <returns>Count of active cells</returns>
+        public int GetActiveCellCount()
+        {
+            int count = 0;
+            for (int i = 0; i < grid.Count; i++)
+                if (grid[i]) count++;
+            return count;
+        }
+
+        /// <summary>
+        /// Get a list of all active cell coordinates.
+        /// </summary>
+        /// <returns>List of (x, y) coordinates of active cells</returns>
+        public List<Vector2Int> GetActiveCells()
+        {
+            List<Vector2Int> activeCells = new List<Vector2Int>();
+            for (int y = 0; y < height; y++)
+            {
+                for (int x = 0; x < width; x++)
+                {
+                    if (grid[y * width + x])
+                        activeCells.Add(new Vector2Int(x, y));
+                }
+            }
+            return activeCells;
+        }
+
+        #endregion
 
         private void Update()
         {

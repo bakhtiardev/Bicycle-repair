@@ -118,11 +118,31 @@ namespace AUIT
         private void Awake()
         {
             Instance = this;
+
+            // Ensure _asyncSolver is initialized at runtime properly
+            if (_asyncSolver == null)
+            {
+                if (solverSettings != null)
+                {
+                    _asyncSolver = solverSettings;
+                }
+                else
+                {
+                    AssignSolver();
+                }
+            }
         }
 
         private void Start()
         {
-            AsyncIO.ForceDotNet.Force();
+            try 
+            {
+                AsyncIO.ForceDotNet.Force();
+            } 
+            catch (Exception e) 
+            {
+                Debug.LogWarning($"[AUIT] AsyncIO.ForceDotNet.Force() threw an exception (likely unsupported on this platform): {e.Message}");
+            }
             // Start by gathering all the game objects to optimize
             int size = gameObjectsToOptimize.Count;
             _gameObjects = new (GameObject, LocalObjectiveHandler)[size];
@@ -149,7 +169,8 @@ namespace AUIT
 
         private void OnDestroy()
         {
-            _asyncSolver.Destroy();
+            if (_asyncSolver != null)
+                _asyncSolver.Destroy();
         }
 
 
