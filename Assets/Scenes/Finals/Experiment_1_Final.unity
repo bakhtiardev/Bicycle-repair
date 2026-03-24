@@ -5627,12 +5627,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7927470fb576bcd419551a685b4053dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AUIT.AdaptationObjectives.Objectives.FieldOfViewGridObjective
-  weight: 0.35
+  weight: 0.4
   userContextSource: {fileID: 1398597433}
   width: 7
   height: 7
-  grid: 00000000000000000000000000000000000000000000000000000000000101010101000001010101010000000000000000
-  debugDrawGrid: 0
+  grid: 00000000000000000000000000000000000100000000010101010100000000000000000000000000000000000000000000
+  debugDrawGrid: 1
 --- !u!114 &2004517104
 MonoBehaviour:
   m_ObjectHideFlags: 0
