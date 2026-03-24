@@ -12,8 +12,10 @@ using UnityEngine;
 ///       Rigidbody is frozen at the floor surface, simulating a solid floor for them.
 ///     – The back wheel, but ONLY after it has been detached from the bike
 ///       (<see cref="WheelTwoHandGrab.IsDetached"/> must be true).
-/// • When the detached wheel enters the trigger it is smoothly rotated to the
-///   horizontal orientation defined by <see cref="WheelTwoHandGrab.horizontalEulers"/>.
+///     – Pedals (<see cref="PedalGrab"/>), but ONLY after detached
+///       (<see cref="PedalGrab.IsDetached"/> must be true).
+/// • When the detached wheel/pedal enters the trigger it is smoothly rotated to the
+///   horizontal orientation defined by their respective euler fields.
 /// </summary>
 [RequireComponent(typeof(BoxCollider))]
 public class FloorTrigger : MonoBehaviour
@@ -23,6 +25,7 @@ public class FloorTrigger : MonoBehaviour
 
     // Track wheels already being snapped to avoid double-triggering.
     private readonly HashSet<WheelTwoHandGrab> _snapping = new HashSet<WheelTwoHandGrab>();
+    private readonly HashSet<PedalGrab>        _snappingPedals = new HashSet<PedalGrab>();
 
     // World-space Y of the top surface of this flat collider, computed once in Awake.
     private float _floorTopY;
@@ -39,6 +42,7 @@ public class FloorTrigger : MonoBehaviour
     {
         CheckWrench(other);
         CheckWheel(other);
+        CheckPedal(other);
     }
 
     // OnTriggerStay catches objects dropped while already inside the volume
@@ -47,6 +51,7 @@ public class FloorTrigger : MonoBehaviour
     {
         CheckWrench(other);
         CheckWheel(other);
+        CheckPedal(other);
     }
 
     // When the wheel is re-grabbed and released again it may re-enter.
@@ -56,6 +61,10 @@ public class FloorTrigger : MonoBehaviour
         var wheel = other.GetComponentInParent<WheelTwoHandGrab>();
         if (wheel != null)
             _snapping.Remove(wheel);
+
+        var pedal = other.GetComponentInParent<PedalGrab>();
+        if (pedal != null)
+            _snappingPedals.Remove(pedal);
     }
 
     // ── Helpers ───────────────────────────────────────────────────────────────
@@ -122,6 +131,51 @@ public class FloorTrigger : MonoBehaviour
             // Stop if the wheel was destroyed or the WheelTwoHandGrab was disabled
             // mid-snap (e.g. FinalizeOnCarpet fired first).
             if (wheel == null || target == null)
+                yield break;
+
+            elapsed         += Time.deltaTime;
+            target.rotation  = Quaternion.Slerp(from, to, elapsed / wheelSnapDuration);
+            yield return null;
+        }
+
+        if (target != null)
+            target.rotation = to;
+    }
+
+    private void CheckPedal(Collider other)
+    {
+        var pedal = other.GetComponentInParent<PedalGrab>();
+        if (pedal == null) return;
+        if (!pedal.IsDetached) return;      // Still on the bike — ignore.
+
+        var rb = pedal.GetComponent<Rigidbody>();
+        if (rb != null && !rb.isKinematic)
+        {
+            rb.linearVelocity  = Vector3.zero;
+            rb.angularVelocity = Vector3.zero;
+            rb.isKinematic     = true;
+            rb.useGravity      = false;
+            Vector3 p = pedal.transform.position;
+            p.y = _floorTopY + 0.02f;
+            pedal.transform.position = p;
+            Debug.Log("[FloorTrigger] Detached pedal stopped on floor.");
+        }
+
+        if (_snappingPedals.Contains(pedal)) return;
+        _snappingPedals.Add(pedal);
+        StartCoroutine(SnapPedalToFlat(pedal));
+    }
+
+    private IEnumerator SnapPedalToFlat(PedalGrab pedal)
+    {
+        Transform  target  = pedal.transform;
+        Quaternion from    = target.rotation;
+        Quaternion to      = Quaternion.Euler(pedal.flatEulers);
+        float      elapsed = 0f;
+
+        while (elapsed < wheelSnapDuration)
+        {
+            if (pedal == null || target == null)
                 yield break;
 
             elapsed         += Time.deltaTime;
