@@ -10,11 +10,11 @@ Core areas to look at:
 
 Some glimpses of the interaction experiments are available in [Assets/InstructionVideos/](Assets/InstructionVideos/).
 
-<video src="Assets/InstructionVideos/Pick_up_wrench.mp4" controls muted playsinline width="720"></video>
-<video src="Assets/InstructionVideos/Wrench_Wheel_Interaction.mp4" controls muted playsinline width="720"></video>
-<video src="Assets/InstructionVideos/Wrench_Pedal_Interaction.mp4" controls muted playsinline width="720"></video>
-<video src="Assets/InstructionVideos/Wheel_Grabbing_Interaction.mp4" controls muted playsinline width="720"></video>
-<video src="Assets/InstructionVideos/XY_nextprev.mp4" controls muted playsinline width="720"></video>
+- [Pick up wrench](Assets/InstructionVideos/Pick_up_wrench.mp4)
+- [Wrench–wheel interaction](Assets/InstructionVideos/Wrench_Wheel_Interaction.mp4)
+- [Wrench–pedal interaction](Assets/InstructionVideos/Wrench_Pedal_Interaction.mp4)
+- [Wheel grabbing interaction](Assets/InstructionVideos/Wheel_Grabbing_Interaction.mp4)
+- [XY next/previous interaction](Assets/InstructionVideos/XY_nextprev.mp4)
 
 ## Requirements
 - Unity Editor `6000.3.8f1` (see [ProjectSettings/ProjectVersion.txt](ProjectSettings/ProjectVersion.txt))
