@@ -8,7 +8,7 @@ Core areas to look at:
 - Scenes for the final experiments live in [Assets/Scenes/Finals/](Assets/Scenes/Finals/)
 - Project/package dependencies are defined in [Packages/manifest.json](Packages/manifest.json)
 
-- Some glimps of experiments [Assets/InstructionVideos/](Assets/InstructionVideos/):
+Some glimps of experiments [Assets/InstructionVideos/](Assets/InstructionVideos/)
 
 #### Pick up wrench:
 
