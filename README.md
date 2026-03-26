@@ -8,32 +8,32 @@ Core areas to look at:
 - Scenes for the final experiments live in [Assets/Scenes/Finals/](Assets/Scenes/Finals/)
 - Project/package dependencies are defined in [Packages/manifest.json](Packages/manifest.json)
 
-Some glimps of experiments [Assets/InstructionVideos/](Assets/InstructionVideos/)
-
-#### Pick up wrench:
+Some glimps of experiments interactions [Assets/InstructionVideos/](Assets/InstructionVideos/)
 
 <video src="Assets/InstructionVideos/Pick_up_wrench.mp4" controls muted playsinline width="720"></video>
-
-#### Wrench wheel interaction:
-
 <video src="Assets/InstructionVideos/Wrench_Wheel_Interaction.mp4" controls muted playsinline width="720"></video>
-
-#### Wrench pedal interaction:
-
 <video src="Assets/InstructionVideos/Wrench_Pedal_Interaction.mp4" controls muted playsinline width="720"></video>
-
-#### Wheel grabbing interaction:
-
 <video src="Assets/InstructionVideos/Wheel_Grabbing_Interaction.mp4" controls muted playsinline width="720"></video>
-
-#### UI next/prev navigation:
-
 <video src="Assets/InstructionVideos/XY_nextprev.mp4" controls muted playsinline width="720"></video>
 
 ## Requirements
 - Unity Editor `6000.3.8f1` (see [ProjectSettings/ProjectVersion.txt](ProjectSettings/ProjectVersion.txt))
 - Android build support installed via Unity Hub (Android SDK/NDK + OpenJDK)
 - Target device: Meta Quest (Quest / Quest 2 / Quest Pro / Quest 3 / Quest 3S), as declared in [Assets/Plugins/Android/AndroidManifest.xml](Assets/Plugins/Android/AndroidManifest.xml)
+
+## Usage Instructions
+
+Run in Editor:
+- Open [Assets/Scenes/Finals/IntroScene_Final.unity](Assets/Scenes/Finals/IntroScene_Final.unity) and press Play.
+- To jump straight into a final experiment scene, open one of:
+	- [Assets/Scenes/Finals/Experiment_1_Final.unity](Assets/Scenes/Finals/Experiment_1_Final.unity)
+	- [Assets/Scenes/Finals/Experiment_2_Final.unity](Assets/Scenes/Finals/Experiment_2_Final.unity)
+	- [Assets/Scenes/Finals/Experiment_3_Final.unity](Assets/Scenes/Finals/Experiment_3_Final.unity)
+
+Build & run on Quest:
+- Switch platform to Android (`File > Build Settings...`).
+- Connect the headset with USB debugging enabled, then use `Build And Run`.
+
 
 ## Dependencies
 
