@@ -1,6 +1,6 @@
 # BikeRepairXR
 
-BikeRepairXR is a Unity XR bicycle repair experience built for Meta Quest. It combines hands-on interaction (tools, grabbing, locomotion, step progression) with an adaptive UI/optimization system called [AUIT](https://github.com/joaobelo92/auit) to place and update instruction canvases at runtime.
+BikeRepairXR is a Unity XR bicycle repair experience built for Meta Quest. It combines hands-on interaction (tools, grabbing, locomotion) with an adaptive UI/optimization system called [AUIT](https://github.com/joaobelo92/auit) to place and update instruction canvases at runtime.
 
 Core areas to look at:
 - AUIT runtime/optimization logic lives in [Assets/AUIT/](Assets/AUIT/)
